@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="lua52f" />
+		<Option pch_mode="2" />
+		<Option default_target="interpreter" />
+		<Option compiler="mingw-w64_gcc_93_x64" />
+		<Option virtualFolders="lua52f sources/;lua52f headers/" />
+		<Option extended_obj_names="1" />
+		<Build>
+			<Target title="library">
+				<Option output="bin/lua52f" imp_lib="bin/lua52f.a" def_file="$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj" />
+				<Option type="3" />
+				<Option compiler="mingw-w64_gcc_93_x64" />
+			</Target>
+			<Target title="interpreter">
+				<Option output="bin/lua52f" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj" />
+				<Option type="1" />
+				<Option compiler="mingw-w64_gcc_93_x64" />
+				<Option parameters='-e &quot;print(_VERSION&quot;)' />
+				<Linker>
+					<Add library="lua52f" />
+					<Add directory="bin" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="all" targets="library;interpreter;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-O2" />
+			<Add option="-pedantic" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-fPIC" />
+			<Add option="-std=gnu99" />
+			<Add option="-DLUA_BUILD_AS_DLL" />
+			<Add option="-DLUA_COMPAT_ALL" />
+			<Add option="-DUSE_LUA_OS" />
+			<Add option="-DUSE_LUA_IO" />
+			<Add option="-DUSE_LUA_PACKAGE" />
+			<Add option="-DUSE_LUA_COROUTINE" />
+			<Add option="-DUSE_LUA_LOADFILE" />
+			<Add option="-DUSE_LUA_DOFILE" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+		</Linker>
+		<Unit filename="src/LuaCPPUtilities.hpp">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lapi.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lapi.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lauxlib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lauxlib.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lbaselib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lbitlib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lcode.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lcode.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lcorolib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lctype.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lctype.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/ldblib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ldebug.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ldebug.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/ldo.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ldo.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/ldump.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lfunc.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lfunc.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lgc.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lgc.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/linit.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/liolib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/llex.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/llex.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/llimits.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lmathlib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lmem.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lmem.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/loadlib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lobject.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lobject.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lopcodes.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lopcodes.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/loslib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lparser.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lparser.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lstate.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lstate.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lstring.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lstring.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lstrlib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ltable.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ltable.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/ltablib.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ltm.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/ltm.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lua.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="interpreter" />
+		</Unit>
+		<Unit filename="src/lua.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lua.hpp">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/luac.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/luaconf.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lualib.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lundump.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lundump.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lvm.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lvm.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/lzio.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="lua52f sources/" />
+			<Option target="library" />
+		</Unit>
+		<Unit filename="src/lzio.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/override_printf.h">
+			<Option virtualFolder="lua52f headers/" />
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
