@@ -8,7 +8,9 @@
 #include <setjmp.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef __cplusplus
 #include <exception>
+#endif // __cplusplus
 
 #define ldo_c
 #define LUA_CORE
@@ -49,26 +51,26 @@
 */
 #if !defined(LUAI_THROW)
 
-//#if defined(__cplusplus) && !defined(LUA_USE_LONGJMP)
+#if defined(__cplusplus) && !defined(LUA_USE_LONGJMP)
 /* C++ exceptions */
 #define LUAI_THROW(L,c) throw(c)
 #define LUAI_TRY(L,c,a) \
  try { a } catch(...) { if ((c)->status == 0) (c)->status = -1; }
 #define luai_jmpbuf int  /* dummy variable */
 
-//#elif defined(LUA_USE_ULONGJMP)
-///* in Unix, try _longjmp/_setjmp (more efficient) */
-//#define LUAI_THROW(L,c) _longjmp((c)->b, 1)
-//#define LUAI_TRY(L,c,a) if (_setjmp((c)->b) == 0) { a }
-//#define luai_jmpbuf jmp_buf
-//
-//#else
-///* default handling with long jumps */
-//#define LUAI_THROW(L,c) longjmp((c)->b, 1)
-//#define LUAI_TRY(L,c,a) if (setjmp((c)->b) == 0) { a }
-//#define luai_jmpbuf jmp_buf
-//
-//#endif
+#elif defined(LUA_USE_ULONGJMP)
+/* in Unix, try _longjmp/_setjmp (more efficient) */
+#define LUAI_THROW(L,c) _longjmp((c)->b, 1)
+#define LUAI_TRY(L,c,a) if (_setjmp((c)->b) == 0) { a }
+#define luai_jmpbuf jmp_buf
+
+#else
+/* default handling with long jumps */
+#define LUAI_THROW(L,c) longjmp((c)->b, 1)
+#define LUAI_TRY(L,c,a) if (setjmp((c)->b) == 0) { a }
+#define luai_jmpbuf jmp_buf
+
+#endif
 
 #endif
 
@@ -130,6 +132,11 @@ int luaD_rawrunprotected (lua_State *L, Pfunc f, void *ud) {
   lj.previous = L->errorJmp;  /* chain new error handler */
   L->errorJmp = &lj;
 
+#ifndef __cplusplus
+  LUAI_TRY(L, &lj,
+    (*f)(L, ud);
+  );
+#else
   // C++ right in the middle of all this C.
   // The IDE won't have *any* of it - but it compiles just fine.
   try
@@ -161,6 +168,7 @@ int luaD_rawrunprotected (lua_State *L, Pfunc f, void *ud) {
     if (lj.status == 0)
       lj.status = -1;
   }
+#endif // __cplusplus
 
   L->errorJmp = lj.previous;  /* restore old error handler */
   L->nCcalls = oldnCcalls;

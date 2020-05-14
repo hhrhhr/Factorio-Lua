@@ -446,8 +446,8 @@ typedef union TKey {
 typedef struct Node {
   TValue i_val;
   TKey i_key;
-  Node* next; /* Holds insertion order */
-  Node* prev;
+  struct Node* next; /* Holds insertion order */
+  struct Node* prev;
 } Node;
 
 

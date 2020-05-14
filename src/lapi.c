@@ -827,7 +827,7 @@ LUA_API void lua_rawgettablesizes (lua_State *L, int idx, int *outarraysize, int
 
   Table *h = hvalue(t);
   *outarraysize = h->sizearray;
-  *outhashsize = int(pow(2, h->lsizenode));
+  *outhashsize = (int)(pow(2, h->lsizenode));
 
   lua_unlock(L);
 }
